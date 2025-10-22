@@ -10,4 +10,8 @@ public class HelloController {
     public String hello() {
         return "Hello from the TaxiFinder Backend!";
     }
+    @GetMapping("/")
+    public String index() {
+        return "marvin testing end point";
+    }
 }
