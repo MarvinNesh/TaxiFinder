@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Dashboard.css'; 
 
 function Dashboard() {
   const [from, setFrom] = useState('');
@@ -11,12 +12,12 @@ function Dashboard() {
   };
 
   return (
-    <div>
+    <div className="dashboard-container">
       <h1>TaxiFinder Dashboard</h1>
-      <p>Welcome to your dashboard. Taxi locations will be displayed here.</p>
+      <p>Welcome to your dashboard. Find a ride below.</p>
       
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="find-taxi-form">
+        <div className="form-group">
           <label htmlFor="from">From:</label>
           <input
             type="text"
@@ -27,7 +28,7 @@ function Dashboard() {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="to">To:</label>
           <input
             type="text"
