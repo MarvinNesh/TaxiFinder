@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import './Dashboard.css'; 
+import './Dashboard.css';
 
 function Dashboard() {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    alert(`Finding a taxi from: ${from} to: ${to}`);
-    
+    setMessage('Finding a taxi...');
+
+    try {
+      const response = await fetch('/api/locations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ from, to }),
+      });
+
+      if (response.ok) {
+        setMessage('Your request has been received! We are looking for a taxi.');
+        setFrom('');
+        setTo('');
+      } else {
+        setMessage('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Failed to connect to the server. Please try again later.');
+      console.error('There was an error!', error);
+    }
   };
 
   return (
@@ -41,6 +62,7 @@ function Dashboard() {
         </div>
         <button type="submit">Find Taxi</button>
       </form>
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }
