@@ -47,3 +47,9 @@
 .find-taxi-form button:hover {
   background-color: #0056b3;
 }
+
+.message {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
