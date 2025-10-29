@@ -1,4 +1,4 @@
-package com.taxifinder.taxifinder.model;
+package com.taxifinder.backend.model;
 
 import java.time.LocalDateTime;
 

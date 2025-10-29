@@ -1,6 +1,6 @@
-package com.taxifinder.taxifinder.repository;
+package com.taxifinder.backend.repository;
 
-import com.taxifinder.taxifinder.model.Location;
+import com.taxifinder.backend.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
